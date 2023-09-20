@@ -22,7 +22,15 @@
       "es2020",
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "paths": {
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
