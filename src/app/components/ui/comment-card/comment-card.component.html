@@ -1,1 +1,9 @@
-<p>comment-card works!</p>
+<mat-card class="custom-card mat-elevation-z2">
+    <mat-card-header>
+        <mat-card-title>{{comment?.name}}</mat-card-title>
+        <mat-card-subtitle>{{comment?.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{comment?.body}}</p>
+    </mat-card-content>
+</mat-card>

@@ -2,4 +2,7 @@
     <div *ngIf="post | async as postData">
         <app-post-card [post]="postData"></app-post-card>
     </div>
+    <div>
+        <app-comment-list></app-comment-list>
+    </div>
 </div>

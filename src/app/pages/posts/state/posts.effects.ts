@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { withLatestFrom, mergeMap, map, of, filter, switchMap } from "rxjs";
 import { AppState } from "src/app/store/app.state";
-import { loadPosts, loadPostsSuccess } from "./posts.actions";
+import {  loadPosts, loadPostsSuccess } from "./posts.actions";
 import { getPosts } from "./posts.selector";
 import { ApiService } from "@services/api.service";
 import { ROUTER_NAVIGATION, RouterNavigatedAction } from "@ngrx/router-store";
@@ -34,14 +34,14 @@ export class PostsEffects {
     return this.actions$.pipe(
       ofType(ROUTER_NAVIGATION),
       filter((r: RouterNavigatedAction) => {
-        return r.payload.routerState.url.startsWith('/posts/details');
+        return r.payload.routerState.url.startsWith('/posts');
       }),
-      map((r: RouterNavigatedAction) => {
-        return r.payload.routerState.root['params']['id'];
+      map((r: any) => {
+        return r.payload.routerState['params']['id'];
       }),
       withLatestFrom(this.store.select(getPosts)),
       map(([id, posts]) => {
-          const post =posts.find((post)=> post.id === id);
+          const post =posts.find((post)=> post.id == id);
           console.log(posts);
           return loadPostsSuccess({ posts: post? [post] : []});
       })

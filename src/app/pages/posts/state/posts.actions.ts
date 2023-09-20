@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store";
+import { IComment } from "src/models/comment";
 import { IPost } from "src/models/post";
 
 export const LOAD_POSTS = '[posts page] load posts';

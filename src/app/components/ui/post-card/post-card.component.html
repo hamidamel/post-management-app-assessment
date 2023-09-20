@@ -7,6 +7,6 @@
         <p>{{post?.body}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button [routerLink]="[post?.id]">Details</button>
+        <button mat-button [routerLink]="['posts',post?.id]">Details</button>
     </mat-card-actions>
 </mat-card>

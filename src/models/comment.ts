@@ -3,7 +3,7 @@ import { IUser } from "./user"
 export interface IComment {
   postId: number,
   id: number,
-  title: string,
+  name: string,
   body: string,
   email: string
 }

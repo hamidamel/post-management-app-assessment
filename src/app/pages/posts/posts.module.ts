@@ -11,6 +11,7 @@ import { PostsEffects } from './state/posts.effects';
 import { postsReducer } from './state/posts.reducer';
 import { POST_STATE_NAME } from './state/posts.selector';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { CommentsModule } from '@pages/comments/comments.module';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
         ]),
         UiModule,
         MatGridListModule,
+        CommentsModule,
         StoreModule.forFeature(POST_STATE_NAME,postsReducer),
         EffectsModule.forFeature([PostsEffects]),
     ],

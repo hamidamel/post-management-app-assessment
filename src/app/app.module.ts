@@ -21,7 +21,6 @@ import { RouterSerializer } from './router/router-serializer';
     AppRoutingModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot(),
     StoreRouterConnectingModule.forRoot({
       serializer: RouterSerializer,
     }),
