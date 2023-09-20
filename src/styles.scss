@@ -20,13 +20,24 @@ $post-management-app-assessment-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
+
+$my-typography: mat.define-typography-config(
+  $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $headline-4: mat.define-typography-level(34px, 40px, 400),
+  $headline-5: mat.define-typography-level(24px, 32px, 400),
+);
+
 $post-management-app-assessment-theme: mat.define-light-theme((
   color: (
     primary: $post-management-app-assessment-primary,
     accent: $post-management-app-assessment-accent,
     warn: $post-management-app-assessment-warn,
-  )
+  ),
+  typography: $my-typography,
 ));
+
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

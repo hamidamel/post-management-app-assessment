@@ -10,20 +10,19 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostsEffects } from './state/posts.effects';
 import { postsReducer } from './state/posts.reducer';
 import { POST_STATE_NAME } from './state/posts.selector';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
     declarations: [
         PostPageComponent,
         PostListComponent
     ],
-    exports:[PostListComponent],
     imports: [
         CommonModule,
         RouterModule.forChild([
             {
                 path: '',
-                pathMatch: 'full',
-                redirectTo: '/'
+                component: PostListComponent,
             },
             {
                 component: PostPageComponent,
@@ -35,8 +34,10 @@ import { POST_STATE_NAME } from './state/posts.selector';
             },
         ]),
         UiModule,
+        MatGridListModule,
         StoreModule.forFeature(POST_STATE_NAME,postsReducer),
         EffectsModule.forFeature([PostsEffects]),
-    ]
+    ],
+    exports:[PostListComponent],
 })
 export class PostsModule { }

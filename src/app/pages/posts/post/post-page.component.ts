@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '@services/api.service';
-import { IFullPost, IPost } from 'src/models/post';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
+import { IFullPost } from 'src/models/post';
+import { getPostById } from '../state/posts.selector';
 
 @Component({
   selector: 'app-post-page',
@@ -8,9 +11,13 @@ import { IFullPost, IPost } from 'src/models/post';
   styleUrls: ['./post-page.component.scss']
 })
 export class PostPageComponent implements OnInit{
-  constructor(){
+  post?: Observable<IFullPost | undefined>;
+
+  constructor(private store: Store<AppState>){
+
   }
   ngOnInit(): void {
+    this.post = this.store.select(getPostById);
   }
 
 }

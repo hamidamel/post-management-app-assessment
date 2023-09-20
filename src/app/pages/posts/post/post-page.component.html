@@ -1,1 +1,5 @@
-post page
+<div class="post-page">
+    <div *ngIf="post | async as postData">
+        <app-post-card [post]="postData"></app-post-card>
+    </div>
+</div>

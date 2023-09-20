@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
-import { UiModule } from './components/ui/ui.module';
 import { EffectsModule } from '@ngrx/effects';
 import { appReducer } from './store/app.state';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterSerializer } from './router/router-serializer';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,11 @@ import { appReducer } from './store/app.state';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({
+      serializer: RouterSerializer,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

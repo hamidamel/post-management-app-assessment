@@ -1,5 +1,3 @@
-<div *ngIf="posts | async as postsData">
-    <ng-container *ngFor="let post of postsData">
-        <app-post-card [post]="post"></app-post-card>
-    </ng-container>
+<div *ngIf="posts | async as postsData" class="post-list-container">
+    <app-post-card class="custom-card" *ngFor="let post of postsData" [post]="post"></app-post-card>
 </div>

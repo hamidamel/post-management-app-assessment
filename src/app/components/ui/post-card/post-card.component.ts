@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IFullPost, IPost } from 'src/models/post';
+import { IFullPost } from 'src/models/post';
 
 @Component({
   selector: 'app-post-card',
