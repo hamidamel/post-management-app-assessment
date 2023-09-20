@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path:"post",
-    loadChildren: () => import('@pages/single-post-page/single-post-page.module').then(m => m.SinglePostPageModule),
+    loadChildren: () => import('@pages/posts/posts.module').then(m => m.PostsModule),
   },
 ];
 
