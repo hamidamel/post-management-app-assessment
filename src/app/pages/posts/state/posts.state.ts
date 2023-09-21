@@ -13,7 +13,7 @@ export const initialState: PostsState = postsAdapter.getInitialState({
   totalNumber: 0,
   page: {
     pageIndex:0, 
-    pageSize: 10,
+    pageSize: 5,
     length: 10
   }
 });
