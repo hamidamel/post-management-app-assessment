@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
 import { IPost } from 'src/models/post';
-import { loadPosts } from '../state/posts.actions';
-import { getPosts } from '../state/posts.selector';
+import { loadPosts, setPageSize } from '../state/posts.actions';
+import { getPage, getPosts, getTotalPostNumber } from '../state/posts.selector';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-post-list',
@@ -13,11 +14,22 @@ import { getPosts } from '../state/posts.selector';
 })
 export class PostListComponent {
   public posts?: Observable<IPost[]>;
+  public page$?: Observable<PageEvent>;
+  public totalPostNumber?: Observable<number>;
 
   constructor(private store: Store<AppState>){
   }
   ngOnInit(): void {
+    this.page$ = this.store.select(getPage);
     this.posts = this.store.select(getPosts);
-    this.store.dispatch(loadPosts());
+    this.totalPostNumber = this.store.select(getTotalPostNumber);
+
+    this.page$.subscribe((p)=>{
+      this.store.dispatch(loadPosts());
+    })
+  }
+
+  handlePageEvent(e:PageEvent){
+    this.store.dispatch(setPageSize({page: e}));
   }
 }

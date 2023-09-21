@@ -12,6 +12,7 @@ import { postsReducer } from './state/posts.reducer';
 import { POST_STATE_NAME } from './state/posts.selector';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CommentsModule } from '@pages/comments/comments.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { CommentsModule } from '@pages/comments/comments.module';
         UiModule,
         MatGridListModule,
         CommentsModule,
+        MatPaginatorModule,
         StoreModule.forFeature(POST_STATE_NAME,postsReducer),
         EffectsModule.forFeature([PostsEffects]),
     ],

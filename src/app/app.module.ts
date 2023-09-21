@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { appReducer } from './store/app.state';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -19,6 +20,7 @@ import { RouterSerializer } from './router/router-serializer';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({

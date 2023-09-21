@@ -1,3 +1,7 @@
 <div *ngIf="posts | async as postsData" class="post-list-container">
     <app-post-card class="custom-card" *ngFor="let post of postsData" [post]="post"></app-post-card>
+
+    <mat-paginator [length]="totalPostNumber |async" [pageSize]="(page$ | async)?.pageSize" [pageIndex]="(page$ | async)?.pageIndex" (page)="handlePageEvent($event)" [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+    </mat-paginator>
 </div>
