@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
 import { IFullPost } from 'src/models/post';
 import { getPostById } from '../state/posts.selector';
+import { loadPosts } from '../state/posts.actions';
 
 @Component({
   selector: 'app-post-page',
@@ -18,6 +19,7 @@ export class PostPageComponent implements OnInit{
   }
   ngOnInit(): void {
     this.post = this.store.select(getPostById);
+    this.store.dispatch(loadPosts());
   }
 
 }
